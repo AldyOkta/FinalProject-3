@@ -3,12 +3,13 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { signOut } from "../store/auth/authSlice";
 import { useIsFocused } from "@react-navigation/core";
-import { Avatar, TouchableRipple } from "react-native-paper";
+import { Avatar, Button, TouchableRipple } from "react-native-paper";
 import { Ionicons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
-import { AntDesign } from "@expo/vector-icons";
+import { AntDesign } from '@expo/vector-icons';
 
 export default function Profile({ navigation }) {
+	
 	const isFocused = useIsFocused();
 	const dispatch = useDispatch();
 	const { isAuthenticated, isLoading, user } = useSelector(
@@ -43,6 +44,52 @@ export default function Profile({ navigation }) {
 					</View>
 				</TouchableRipple>
 			</View>
+
+			<View style={styles.menuWrapper}>
+      			<TouchableRipple onPress={() => {}}>
+        			<View style={styles.menuItem}>
+        		 	<MaterialIcons name="payment" size={24} color="black" />
+          		<Text style={styles.menuItemText}>Payment</Text>
+        			</View>
+     			</TouchableRipple>
+    		</View>    
+
+			<View style={styles.menuWrapper}>
+				<TouchableRipple onPress={() => {}}>
+					<View style={styles.menuItem}>
+				<Ionicons name="notifications-outline" size={24} color="black" />
+				<Text style={styles.menuItemText}>Notifications</Text>
+					</View>
+				</TouchableRipple>
+			</View>
+
+			<View style={styles.menuWrapper}>
+				<TouchableRipple onPress={() => {}}>
+					<View style={styles.menuItem}>
+				<MaterialIcons name="security" size={24} color="black" />
+				<Text style={styles.menuItemText}>Security</Text>
+					</View>
+				</TouchableRipple>
+			</View>    
+
+			<View style={styles.menuWrapper}>
+				<TouchableRipple onPress={() => {}}>
+					<View style={styles.menuItem}>
+				<Ionicons name="help" size={24} color="black" />
+				<Text style={styles.menuItemText}>Help</Text>
+					</View>
+				</TouchableRipple>
+			</View> 
+
+			<View style={styles.menuWrapper}>
+				<TouchableRipple onPress={() => {}}>
+					<View style={styles.menuItem}>
+				<AntDesign name="eye" size={24} color="black" />
+				<Text style={styles.menuItemText}>Dark Theme</Text>
+					</View>
+				</TouchableRipple>
+			</View>
+
 			<View style={styles.menuWrapper}>
 				<TouchableRipple onPress={handleSignOut}>
 					<View style={styles.menuItem}>
@@ -69,11 +116,11 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: "center",
 		alignItems: "center",
-		marginHorizontal: 20,
+		marginHorizontal: 30,
 	},
 	container: {
 		flex: 1,
-		marginVertical: 20,
+		marginVertical: 60,
 	},
 	name: {
 		fontSize: 25,
@@ -90,7 +137,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		fontSize: 16,
 		textAlign: "left",
-		marginTop: 5,
+		marginTop: 7,
 		flexDirection: "row",
 		justifyContent: "space-between",
 	},
